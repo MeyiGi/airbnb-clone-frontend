@@ -8,6 +8,8 @@ export default function MyReservationPage() {
       <div className="space-y-4">
         <ReservationCard />
         <ReservationCard />
+        <ReservationCard />
+        <ReservationCard />
       </div>
     </main>
   );
