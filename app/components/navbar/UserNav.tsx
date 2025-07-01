@@ -3,10 +3,14 @@
 import { UserIcon, Bars3Icon } from '@heroicons/react/24/outline';
 import { useState } from "react";
 import MenuLink from './MenuLink';
+import useLoginModal from '@/app/hooks/useLoginModal';
+
+
 
 export default function UserNav() {
+const loginModal = useLoginModal();
     const [isOpen, setIsOpen] = useState(false);
-
+    
     return (
         <div className="p-2 relative inline-block border border-gray-200 rounded-full">
             <button
@@ -19,7 +23,11 @@ export default function UserNav() {
             {isOpen && (
                 <div className='w-[220px] absolute top-[60px] right-0 bg-white border border-gray-200 rounded-xl shadow-md flex flex-col cursor-pointer'>
                     <MenuLink 
-                        onClick={() => console.log("clicked button")}
+                        onClick={() => {
+                            console.log("clicked button")
+                            setIsOpen(false);
+                            loginModal.open()
+                        }}
                         label={'Login'}/>
                     <MenuLink 
                         onClick={() => console.log("clicked button")}
